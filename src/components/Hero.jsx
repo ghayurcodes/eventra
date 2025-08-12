@@ -11,7 +11,7 @@ const HeroSection = () => {
         <div className="hero-search">
           <input
             type="text"
-            placeholder="Search events, cities, or dates..."
+            placeholder="Search events or cities..."
           />
           <button>Search</button>
         </div>
