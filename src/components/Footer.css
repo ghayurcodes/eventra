@@ -1,0 +1,23 @@
+.footer{
+    width: 100%;
+    background-color: var(--secondary-color);
+    height: 13vh;
+    justify-content: center;
+    align-items: center;
+    display:flex;
+}
+
+.cont{
+    width: 300px;
+    text-align: center;
+}
+
+.images a img{
+    width: 25px;
+    margin: 5px 5px;
+}
+
+.cont p{
+    margin: 0px;
+}
+

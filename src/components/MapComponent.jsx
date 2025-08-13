@@ -20,7 +20,7 @@ function RecenterMap({ center }) {
   return null;
 }
 
-export default function MapComponent() {
+export default function MapComponent(param) {
   const locations = [
     { id: 1, name: "Islamabad", position: [33.6844, 73.0479] },
     { id: 2, name: "Karachi", position: [24.8607, 67.0011] },

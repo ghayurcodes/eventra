@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import HeroSection from "./components/Hero";
 import EventsSection from "./components/EventsSection";
 import MapComponent from "./components/MapComponent";
+import Footer from "./components/Footer";
 
 function App() {
   // useEffect(() => {
@@ -40,7 +41,8 @@ function App() {
       <Navbar />
       <HeroSection />
       <EventsSection/>
-      <MapComponent/>
+      <MapComponent name="lol"/>
+      <Footer/>
       
     </div>
 
