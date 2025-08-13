@@ -4,6 +4,8 @@ import { collection, addDoc, getDocs } from "firebase/firestore";
 import './App.css';
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/Hero";
+import EventsSection from "./components/EventsSection";
+import MapComponent from "./components/MapComponent";
 
 function App() {
   // useEffect(() => {
@@ -37,6 +39,8 @@ function App() {
 
       <Navbar />
       <HeroSection />
+      <EventsSection/>
+      <MapComponent/>
       
     </div>
 
