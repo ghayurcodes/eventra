@@ -1,15 +1,22 @@
-import React, { useEffect } from "react";
-import { db } from "./firebase";
-import { collection, addDoc, getDocs } from "firebase/firestore";
-import './App.css';
-import Navbar from "./components/Navbar";
-import HeroSection from "./components/Hero";
-import EventsSection from "./components/EventsSection";
-import MapComponent from "./components/MapComponent";
-import Footer from "./components/Footer";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/Homepage";
+import LoginPage from "./pages/Login";
 
 function App() {
-  // useEffect(() => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
+
+ // useEffect(() => {
   //   const testFirestore = async () => {
   //     try {
   //       // Add a sample document
@@ -34,20 +41,3 @@ function App() {
 
   //   testFirestore();
   // }, []);
-
-  return (
-    <div className="app">
-
-      <Navbar />
-      <HeroSection />
-      <EventsSection/>
-      <MapComponent name="lol"/>
-      <Footer/>
-      
-    </div>
-
-  );
-}
-
-
-export default App;
