@@ -24,6 +24,7 @@
   font-weight: bold;
   color: var(--secondary-color);
   cursor: pointer;
+  letter-spacing: 5px;
 }
 
 .navbar-brand:hover {

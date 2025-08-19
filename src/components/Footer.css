@@ -17,6 +17,11 @@
     margin: 5px 5px;
 }
 
+.images a img:hover{
+    transition: all 0.3s ease;
+    filter: invert(1);
+}
+
 .cont p{
     margin: 0px;
 }
