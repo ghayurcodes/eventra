@@ -21,7 +21,7 @@ const Navbar = () => {
           <li><a href="#map" onClick={() => setMobileMenuOpen(false)}>Map</a></li>
           <li><a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a></li>
           <li><a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a></li>
-           <Link to="/login"> <Button text="Login" bgColor="green" fgColor="white" /></Link>
+           <Link to="/login"> <Button text="Login" bgColor="var(--primary-color)" fgColor="white" /></Link>
         </ul>
        
 

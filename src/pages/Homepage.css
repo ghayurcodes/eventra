@@ -2,9 +2,13 @@
 
 
 :root {
-  --primary-color: #2ecc71; 
-  --secondary-color: #27ae60;
+  /* darker */
+  --primary-color: #129d46; 
+  /* lighter */
+  --secondary-color:#27ae60;
   --text-color: #ffffff;
   --bg-color: #000000;
 }
+
+
 

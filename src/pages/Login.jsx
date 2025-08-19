@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Login.css"; // Importing CSS file
+import "./Login.css"; 
 
 const LoginPage = () => {
   const [activeTab, setActiveTab] = useState("login");
@@ -8,7 +8,7 @@ const LoginPage = () => {
     <div className="login-container">
       <div className="login-card">
 
-        {/* Left Side */}
+        
         <div className="login-left">
           <div className="logo">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" 
@@ -19,12 +19,12 @@ const LoginPage = () => {
             </svg>
             <span>EVENTRA</span>
           </div>
-          <h1>Discover events happening around you</h1>
+          <h1>Discover events happening around you in Pakistan</h1>
         </div>
 
-        {/* Right Side */}
+       
         <div className="login-right">
-          {/* Tabs */}
+         
           <div className="tabs">
             <button 
               onClick={() => setActiveTab("login")}
@@ -40,7 +40,7 @@ const LoginPage = () => {
             </button>
           </div>
 
-          {/* Form */}
+         
           <div className="form">
             <input type="text" placeholder="Email address" />
             <input type="password" placeholder="Password" />
@@ -48,12 +48,12 @@ const LoginPage = () => {
             <button className="btn-primary">Log in</button>
           </div>
 
-          {/* Separator */}
+          
           <div className="separator">
             <hr /> <span>or</span> <hr />
           </div>
 
-          {/* Signup Button */}
+          
           <button className="btn-secondary">Sign up</button>
         </div>
       </div>

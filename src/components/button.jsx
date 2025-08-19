@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-function Button({ text, bgColor = "#007bff", fgColor = "#fff" }) {
+function Button({ text, bgColor , fgColor = "#fff" }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
