@@ -1,20 +1,30 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
 import HomePage from "./pages/Homepage";
 import LoginPage from "./pages/Login";
 
 function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
-    </Router>
-  );
+  // Define routes
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <HomePage />,
+    },
+    {
+      path: "/login",
+      element: <LoginPage />,
+    },
+  ]);
+
+  // Pass router as prop
+  return <RouterProvider router={router} />;
 }
 
 export default App;
+
 
  // useEffect(() => {
   //   const testFirestore = async () => {

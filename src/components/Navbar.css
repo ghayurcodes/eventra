@@ -13,8 +13,6 @@
 .navbar-container {
   max-width: 1100px;
   margin: 0 auto;
-  
-  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,6 +34,7 @@
   list-style: none;
   display: flex;
   gap: 2rem;
+  align-items: center;
 }
 
 .navbar-links li a {

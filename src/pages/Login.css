@@ -1,0 +1,162 @@
+/* Container */
+.login-container {
+  background-color: #15803d; /* green-700 */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Card */
+.login-card {
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  max-width: 1000px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Left side */
+.login-left {
+  background: #166534; /* green-800 */
+  color: white;
+  padding: 50px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 20px 0 0 20px;
+}
+
+.login-left .logo {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.login-left .logo span {
+  margin-left: 10px;
+}
+
+.login-left h1 {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+/* Right side */
+.login-right {
+  flex: 1;
+  padding: 50px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.tabs button {
+  border: none;
+  background: transparent;
+  padding: 10px;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+.tabs button.active {
+  color: #166534;
+  border-bottom: 2px solid #166534;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form input {
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: #f3f4f6;
+  transition: border 0.3s;
+}
+
+.form input:focus {
+  border: 2px solid #22c55e; /* green-500 */
+  outline: none;
+}
+
+.form .forgot {
+  font-size: 14px;
+  color: #166534;
+  text-align: right;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.form .forgot:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+.btn-primary {
+  background: #16a34a;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background: #15803d;
+}
+
+.btn-secondary {
+  background: #e5e7eb;
+  color: #166534;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-secondary:hover {
+  background: #d1d5db;
+}
+
+/* Separator */
+.separator {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.separator hr {
+  flex-grow: 1;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+.separator span {
+  margin: 0 10px;
+  color: #666;
+  font-size: 14px;
+}
