@@ -10,23 +10,18 @@ import "./Homepage.css"
 const Homepage = () => {
 
 
-  useEffect(async () => {
-    await setTimeout(() => {
-      alert("hello")
-    }, 3000);
+
   
-   
-  }, [])
+
+
   
   return (
     <div>
-        <Navbar/>
+      <Navbar/>
       <HeroSection />
       <EventsSection/>
-      <MapComponent name="lol"/>
+      <MapComponent/>
       <Footer/>
-      
-      
     </div>
   )
 }
