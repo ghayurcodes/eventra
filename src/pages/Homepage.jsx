@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from "../components/Navbar"
 import HeroSection from "../components/Hero";
 import EventsSection from "../components/EventsSection";
@@ -6,7 +6,18 @@ import MapComponent from "../components/MapComponent";
 import Footer from "../components/Footer";
 import "./Homepage.css"
 
+
 const Homepage = () => {
+
+
+  useEffect(async () => {
+    await setTimeout(() => {
+      alert("hello")
+    }, 3000);
+  
+   
+  }, [])
+  
   return (
     <div>
         <Navbar/>
@@ -14,6 +25,7 @@ const Homepage = () => {
       <EventsSection/>
       <MapComponent name="lol"/>
       <Footer/>
+      
       
     </div>
   )
