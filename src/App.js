@@ -7,6 +7,7 @@ import HomePage from "./pages/Homepage";
 import LoginPage from "./pages/Login";
 import { AuthProvider } from "./utils/AuthContext";
 import AddEventPage from "./pages/AddEventPage";
+import ProtectedRoute from "./utils/ProtectedRoute";
 
 function App() {
  
@@ -21,7 +22,7 @@ function App() {
     },
      {
       path: "/add",
-      element: <AddEventPage />,
+      element: <ProtectedRoute><AddEventPage /></ProtectedRoute> 
     },
   ]);
 

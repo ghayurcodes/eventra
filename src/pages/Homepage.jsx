@@ -5,6 +5,7 @@ import EventsSection from "../components/EventsSection";
 import MapComponent from "../components/MapComponent";
 import Footer from "../components/Footer";
 import "./Homepage.css"
+import LogoutButton from "../components/Logout";
 
 
 const Homepage = () => {
@@ -23,6 +24,7 @@ const Homepage = () => {
       <EventsSection/>
       <MapComponent/>
       <Footer/>
+      <LogoutButton/>
     </div>
   )
 }
