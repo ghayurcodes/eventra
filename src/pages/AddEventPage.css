@@ -1,0 +1,79 @@
+/* src/pages/AddEventPage.css */
+.add-event-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background: #f5f7fa;
+  padding: 20px;
+}
+
+.add-event-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 450px;
+  max-width: 100%;
+}
+
+.add-event-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.add-event-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.add-event-card input[type="text"] {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+}
+
+.add-event-card input[type="text"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+}
+
+.map-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.map-container {
+  height: 300px;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+}
+
+.location-info {
+  font-size: 14px;
+  color: #555;
+  margin-top: -10px;
+}
+
+.btn-primary {
+  padding: 12px;
+  background: #007bff;
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}

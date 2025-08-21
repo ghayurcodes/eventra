@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+
 import Navbar from "../components/Navbar"
 import HeroSection from "../components/Hero";
 import EventsSection from "../components/EventsSection";
@@ -10,11 +10,7 @@ import "./Homepage.css"
 const Homepage = () => {
 
 
- useEffect(() => {
-   console.log("hello")
-  
- }, [])
- 
+
 
   
 

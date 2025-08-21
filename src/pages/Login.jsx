@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { auth } from "./firebase"; 
+import { auth } from "../utils/firebase"; 
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import "./Login.css";
 
@@ -9,24 +9,24 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
- 
+  // 🔹 Handle Signup
   const handleSignup = async () => {
-    // try {
-    //   await createUserWithEmailAndPassword(auth, email, password);
-    //   alert("Signup successful! 🎉");
-    // } catch (err) {
-    //   setError(err.message);
-    // }
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      alert("Signup successful! 🎉");
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
- 
+  // 🔹 Handle Login
   const handleLogin = async () => {
-    // try {
-    //   await signInWithEmailAndPassword(auth, email, password);
-    //   alert("Login successful! ✅");
-    // } catch (err) {
-    //   setError(err.message);
-    // }
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      alert("Login successful! ✅");
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   return (
@@ -50,7 +50,7 @@ const LoginPage = () => {
       
         <div className="login-right">
 
-          {/* Tabs */}
+          
           <div className="tabs">
             <button 
               onClick={() => { setActiveTab("login"); setError(""); }}
@@ -75,7 +75,7 @@ const LoginPage = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
             <input 
-              type="password" 
+              type="text" 
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -84,12 +84,12 @@ const LoginPage = () => {
             {error && <p className="error">{error}</p>}
 
             {activeTab === "login" ? (
-              <>
-                <a href="#" className="forgot">Forgot password?</a>
+             
+               
                 <button className="btn-primary" onClick={handleLogin}>
                   Log in
                 </button>
-              </>
+              
             ) : (
               <button className="btn-primary" onClick={handleSignup}>
                 Sign up
@@ -97,12 +97,12 @@ const LoginPage = () => {
             )}
           </div>
 
-          {/* Optional separator */}
+         
           <div className="separator">
             <hr /> <span>or</span> <hr />
           </div>
 
-          {/* You can add Google login here later */}
+          
           <button className="btn-secondary">Continue with Google</button>
         </div>
       </div>

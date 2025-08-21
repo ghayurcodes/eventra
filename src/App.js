@@ -5,6 +5,8 @@ import {
 } from "react-router-dom";
 import HomePage from "./pages/Homepage";
 import LoginPage from "./pages/Login";
+import { AuthProvider } from "./utils/AuthContext";
+import AddEventPage from "./pages/AddEventPage";
 
 function App() {
  
@@ -17,15 +19,23 @@ function App() {
       path: "/login",
       element: <LoginPage />,
     },
+     {
+      path: "/add",
+      element: <AddEventPage />,
+    },
   ]);
 
 
 
 
-  return <RouterProvider router={router} />;
-}
+  return <AuthProvider>
+      <RouterProvider router={router} />;
 
+  </AuthProvider>
+
+}
 export default App;
+
 
 
  // useEffect(() => {
