@@ -10,6 +10,11 @@ import "./Homepage.css"
 const Homepage = () => {
 
 
+ useEffect(() => {
+   console.log("hello")
+  
+ }, [])
+ 
 
   
 

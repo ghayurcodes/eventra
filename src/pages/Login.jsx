@@ -1,14 +1,39 @@
 import React, { useState } from "react";
-import "./Login.css"; 
+// import { auth } from "./firebase"; 
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import "./Login.css";
 
 const LoginPage = () => {
   const [activeTab, setActiveTab] = useState("login");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+ 
+  const handleSignup = async () => {
+    // try {
+    //   await createUserWithEmailAndPassword(auth, email, password);
+    //   alert("Signup successful! 🎉");
+    // } catch (err) {
+    //   setError(err.message);
+    // }
+  };
+
+ 
+  const handleLogin = async () => {
+    // try {
+    //   await signInWithEmailAndPassword(auth, email, password);
+    //   alert("Login successful! ✅");
+    // } catch (err) {
+    //   setError(err.message);
+    // }
+  };
 
   return (
     <div className="login-container">
       <div className="login-card">
 
-        
+      
         <div className="login-left">
           <div className="logo">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" 
@@ -22,18 +47,19 @@ const LoginPage = () => {
           <h1>Discover events happening around you in Pakistan</h1>
         </div>
 
-       
+      
         <div className="login-right">
-         
+
+          {/* Tabs */}
           <div className="tabs">
             <button 
-              onClick={() => setActiveTab("login")}
+              onClick={() => { setActiveTab("login"); setError(""); }}
               className={activeTab === "login" ? "active" : ""}
             >
               Log in
             </button>
             <button 
-              onClick={() => setActiveTab("signup")}
+              onClick={() => { setActiveTab("signup"); setError(""); }}
               className={activeTab === "signup" ? "active" : ""}
             >
               Sign up
@@ -42,19 +68,42 @@ const LoginPage = () => {
 
          
           <div className="form">
-            <input type="text" placeholder="Email address" />
-            <input type="password" placeholder="Password" />
-            <a href="#" className="forgot">Forgot password?</a>
-            <button className="btn-primary">Log in</button>
+            <input 
+              type="text" 
+              placeholder="Email address" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input 
+              type="password" 
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+
+            {error && <p className="error">{error}</p>}
+
+            {activeTab === "login" ? (
+              <>
+                <a href="#" className="forgot">Forgot password?</a>
+                <button className="btn-primary" onClick={handleLogin}>
+                  Log in
+                </button>
+              </>
+            ) : (
+              <button className="btn-primary" onClick={handleSignup}>
+                Sign up
+              </button>
+            )}
           </div>
 
-          
+          {/* Optional separator */}
           <div className="separator">
             <hr /> <span>or</span> <hr />
           </div>
 
-          
-          <button className="btn-secondary">Sign up</button>
+          {/* You can add Google login here later */}
+          <button className="btn-secondary">Continue with Google</button>
         </div>
       </div>
     </div>
