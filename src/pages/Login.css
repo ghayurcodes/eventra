@@ -25,8 +25,8 @@
   background: linear-gradient(rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.4)),
         url("../components/media/bg.jpeg") center/cover no-repeat;
-  filter: blur(2px); /* adjust blur level */
-  z-index: -1; /* keeps it behind everything */
+  filter: blur(2px); 
+  z-index: -1; 
 }
 
 
