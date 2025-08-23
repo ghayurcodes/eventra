@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.login-container {
+.logincontainer {
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -12,12 +12,12 @@
   justify-content: center;
   padding: 20px;
   font-family: 'Inter', sans-serif;
-  overflow: hidden; 
+  overflow: hidden;
   z-index: 1;
   overflow-y: hidden;
 }
 
-.login-container::before {
+.logincontainer::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -25,13 +25,11 @@
   background: linear-gradient(rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.4)),
         url("../components/media/bg.jpeg") center/cover no-repeat;
-  filter: blur(2px); 
-  z-index: -1; 
+  filter: blur(2px);
+  z-index: -1;
 }
 
-
-
-.login-card {
+.loginCard {
   background: white;
   border-radius: 20px;
   display: flex;
@@ -41,7 +39,7 @@
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-.login-left {
+.loginLeft {
   background: var(--primary-color);
   color: white;
   padding: 50px;
@@ -52,7 +50,7 @@
   border-radius: 20px 0 0 20px;
 }
 
-.login-left .logo {
+.loginLeft .logo {
   display: flex;
   align-items: center;
   font-size: 24px;
@@ -60,18 +58,18 @@
   margin-bottom: 20px;
 }
 
-.login-left .logo span {
+.loginLeft .logo span {
   margin-left: 10px;
   letter-spacing: 5px;
 }
 
-.login-left h1 {
+.loginLeft h1 {
   font-size: 2.5rem;
   font-weight: 800;
   line-height: 1.3;
 }
 
-.login-right {
+.loginRight {
   flex: 1;
   padding: 50px;
 }
@@ -131,7 +129,7 @@
   text-decoration: underline;
 }
 
-.btn-primary {
+.btnPrimary {
   width: 100%;
   background: #16a34a;
   color: white;
@@ -143,11 +141,11 @@
   transition: background 0.3s;
 }
 
-.btn-primary:hover {
+.btnPrimary:hover {
   background: #15803d;
 }
 
-.btn-secondary {
+.btnSecondary {
   background: #e5e7eb;
   color: #166534;
   width: 100%;
@@ -159,7 +157,7 @@
   transition: background 0.3s;
 }
 
-.btn-secondary:hover {
+.btnSecondary:hover {
   background: #d1d5db;
 }
 
@@ -182,29 +180,28 @@
 }
 
 @media (max-width: 600px) {
-  .login-card {
+  .loginCard {
     flex-direction: column;
     border-radius: 15px;
   }
 
-
-  .login-left .logo{
+  .loginLeft .logo {
     margin-bottom: 0;
   }
 
-  .login-left {
+  .loginLeft {
     border-radius: 15px 15px 0 0;
     padding: 20px;
     text-align: center;
     align-items: center;
   }
 
-  .login-left h1 {
+  .loginLeft h1 {
     font-size: 1.8rem;
     display: none;
   }
 
-  .login-right {
+  .loginRight {
     padding: 30px;
   }
 
@@ -223,8 +220,8 @@
     padding: 12px;
   }
 
-  .btn-primary,
-  .btn-secondary {
+  .btnPrimary,
+  .btnSecondary {
     padding: 12px;
     font-size: 14px;
   }
