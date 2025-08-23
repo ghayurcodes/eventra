@@ -8,6 +8,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // 👈 state for toggling
 
   const handleSignup = async () => {
     try {
@@ -66,12 +67,22 @@ const LoginPage = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <input 
-              type="password" 
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+
+           
+            <div className={styles.passwordWrapper}>
+              <input 
+                type={showPassword ? "text" : "password"} 
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <span 
+                className={styles.eye} 
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? "🙈" : "👁️"}
+              </span>
+            </div>
 
             {error && <p className={styles.error}>{error}</p>}
 

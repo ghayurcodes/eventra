@@ -179,6 +179,26 @@
   font-size: 14px;
 }
 
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passwordWrapper input {
+  width: 100%;
+  padding-right: 40px; /* space for the eye */
+}
+
+.eye {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+}
+
+
 @media (max-width: 600px) {
   .loginCard {
     flex-direction: column;

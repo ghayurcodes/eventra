@@ -24,13 +24,13 @@ function App() {
       path: "/add",
       element: <ProtectedRoute><AddEventPage /></ProtectedRoute> 
     },
-  ]);
+  ])
 
 
 
 
   return <AuthProvider>
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
 
   </AuthProvider>
 
