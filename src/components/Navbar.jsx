@@ -27,7 +27,18 @@ const Navbar = () => {
         <div className="navbar-brand">Eventra</div>
 
         <ul className={`navbar-links ${mobileMenuOpen ? "active" : ""}`}>
-          <li><a href="#home" onClick={() => setMobileMenuOpen(false)}>Home</a></li>
+         <li>
+  <a
+    href="#"onClick={(e) => {
+      e.preventDefault(); // prevent default anchor jump
+      window.scrollTo({ top: 0, behavior: "smooth" }); // scroll to top
+      setMobileMenuOpen(false);
+    }}
+  >
+    Home
+  </a>
+</li>
+
           <li><a href="#events" onClick={() => setMobileMenuOpen(false)}>Events</a></li>
           <li><a href="#map" onClick={() => setMobileMenuOpen(false)}>Map</a></li>
           <li><a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a></li>
