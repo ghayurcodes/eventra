@@ -80,11 +80,11 @@ const LoginPage = () => {
                 className={styles.eye} 
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword ? "🙈" : "👁️"}
+                👁️
               </span>
             </div>
 
-            {error && <p className={styles.error}>{error}</p>}
+            {error && <p className={styles.error}>Invalid Credentials!</p>}
 
             {activeTab === "login" ? (
               <button className={styles.btnPrimary} onClick={handleLogin}>
