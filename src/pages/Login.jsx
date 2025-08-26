@@ -1,19 +1,23 @@
-import React, { useState } from "react";
+import React, { useState,} from "react";
 import { auth } from "../utils/firebase"; 
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import styles from "./Login.module.css";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
   const [activeTab, setActiveTab] = useState("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [showPassword, setShowPassword] = useState(false); // 👈 state for toggling
+  const [showPassword, setShowPassword] = useState(false); 
+  const navigate = useNavigate();
 
   const handleSignup = async () => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      alert("Signup successful! 🎉");
+      toast.success("✅ Signup successful!");
+      navigate("/")
     } catch (err) {
       setError(err.message);
     }
@@ -22,7 +26,9 @@ const LoginPage = () => {
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alert("Login successful! ✅");
+      toast.success("✅ Login successful!");
+      navigate("/")
+      
     } catch (err) {
       setError(err.message);
     }

@@ -4,11 +4,21 @@ import Button from "./button";
 import { Link } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import LogoutButton from "./Logout";
+import { toast } from "react-toastify";
+import { signOut } from "firebase/auth";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [user, setUser] = useState(null);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      toast.success("✅ Logged out successfully!");
+    } catch (err) {
+      console.error("Logout error:", err);
+    }
+  };
 
   const toggleMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -27,29 +37,22 @@ const Navbar = () => {
         <div className="navbar-brand">Eventra</div>
 
         <ul className={`navbar-links ${mobileMenuOpen ? "active" : ""}`}>
-         <li>
-  <a
-    href="#"onClick={(e) => {
-      e.preventDefault(); // prevent default anchor jump
-      window.scrollTo({ top: 0, behavior: "smooth" }); // scroll to top
-      setMobileMenuOpen(false);
-    }}
-  >
-    Home
-  </a>
-</li>
+          <li>
+            <a href="#events" onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              setMobileMenuOpen(false);
+            }}> Home</a>
+          </li>
 
           <li><a href="#events" onClick={() => setMobileMenuOpen(false)}>Events</a></li>
           <li><a href="#map" onClick={() => setMobileMenuOpen(false)}>Map</a></li>
           <li><a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a></li>
           <li><a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a></li>
 
-          
+
           {user ? (
-            <div className="user-info">
-              <span className="user-email">{user.email}</span>
-              <LogoutButton />
-            </div>
+            <Button text="Logout" bgColor="#FF0000" fgColor="white" onhov="#C6011F" onclick={handleLogout} />
           ) : (
             <Link to="/login">
               <Button text="Login" bgColor="var(--primary-color)" fgColor="white" />

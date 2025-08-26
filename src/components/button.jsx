@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
 
-function Button({ text, bgColor , fgColor = "#fff" }) {
+function Button({ text, bgColor , fgColor = "#fff" ,onhov="var(--secondary-color)" ,onclick}) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <button
       style={{
-        backgroundColor: isHovered ? "var(--secondary-color)" : bgColor,
+        backgroundColor: isHovered ? onhov : bgColor,
         color: fgColor,
         border: "none",
         padding: "10px 20px",
@@ -18,6 +18,7 @@ function Button({ text, bgColor , fgColor = "#fff" }) {
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={onclick}
     >
       {text}
     </button>
