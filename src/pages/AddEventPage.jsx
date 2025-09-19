@@ -4,41 +4,26 @@ import {
   TileLayer,
   Marker,
   useMap,
-  useMapEvents,
 } from "react-leaflet";
 import "./AddEventPage.css";
 
-const LocationSelector = ({ setLocation }) => {
-  const [marker, setMarker] = useState(null);
-
-  useMapEvents({
-    click(e) {
-      setMarker(e.latlng);
-      setLocation(e.latlng);
-    },
-  });
-
-  return marker ? <Marker position={marker} /> : null;
-};
-
-// ✅ Helper component to move map when location changes
+// 🔹 Helper to recenter map when location changes
 const RecenterMap = ({ location }) => {
   const map = useMap();
   if (location) {
-    map.setView(location, 13); // zoom into selected place
+    map.setView(location, 13, { animate: true });
   }
   return null;
 };
 
 const AddEventPage = () => {
   const [title, setTitle] = useState("");
-  const [location, setLocation] = useState(null);
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-  const [selectedMarker, setSelectedMarker] = useState(null);
+  const [location, setLocation] = useState(null);
   const timeoutRef = useRef(null);
 
-  // 🔹 Fetch places from Nominatim API
+  // 🔹 Fetch places from Nominatim API (debounced)
   const handleSearch = (e) => {
     const value = e.target.value;
     setQuery(value);
@@ -55,13 +40,12 @@ const AddEventPage = () => {
       );
       const data = await res.json();
       setSuggestions(data);
-    }, 500); // debounce 0.5s
+    }, 400);
   };
 
   const handleSelectSuggestion = (place) => {
     const coords = { lat: parseFloat(place.lat), lng: parseFloat(place.lon) };
     setLocation(coords);
-    setSelectedMarker(coords);
     setQuery(place.display_name);
     setSuggestions([]);
   };
@@ -69,15 +53,14 @@ const AddEventPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title || !location) {
-      alert("Please provide all event details!");
+      alert("⚠️ Please provide both title and location!");
       return;
     }
     console.log("Event Added:", { title, location });
-    alert("Event added successfully!");
+    alert("✅ Event added successfully!");
     setTitle("");
-    setLocation(null);
     setQuery("");
-    setSelectedMarker(null);
+    setLocation(null);
   };
 
   return (
@@ -85,6 +68,7 @@ const AddEventPage = () => {
       <div className="add-event-card">
         <h2>Add New Event</h2>
         <form onSubmit={handleSubmit}>
+          {/* Event Title */}
           <input
             type="text"
             placeholder="Event Title"
@@ -92,7 +76,7 @@ const AddEventPage = () => {
             onChange={(e) => setTitle(e.target.value)}
           />
 
-          {/* 🔹 Search bar */}
+          {/* Location Search */}
           <div className="search-box">
             <input
               type="text"
@@ -114,30 +98,29 @@ const AddEventPage = () => {
             )}
           </div>
 
-          <div className="map-section">
-            <p>Click on the map or search to select event location:</p>
-            <MapContainer
-              center={[30.3753, 69.3451]} // Pakistan center
-              zoom={5}
-              scrollWheelZoom={true}
-              className="map-container"
-            >
-              <TileLayer
-                attribution='&copy; OpenStreetMap contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-              <LocationSelector setLocation={setLocation} />
-              <RecenterMap location={location} />
-              {selectedMarker && <Marker position={selectedMarker} />}
-            </MapContainer>
-          </div>
-
+          {/* Show map only when location is selected */}
           {location && (
-            <p className="location-info">
-              📍 Selected: {location.lat.toFixed(4)}, {location.lng.toFixed(4)}
-            </p>
+            <div className="map-section fade-in">
+              <MapContainer
+                center={location}
+                zoom={13}
+                scrollWheelZoom={false}
+                className="map-container"
+              >
+                <TileLayer
+                  attribution='&copy; OpenStreetMap contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                <RecenterMap location={location} />
+                <Marker position={location} />
+              </MapContainer>
+              <p className="location-info">
+                📍 {location.lat.toFixed(4)}, {location.lng.toFixed(4)}
+              </p>
+            </div>
           )}
 
+          {/* Submit Button */}
           <button type="submit" className="btn-primary">
             Add Event
           </button>

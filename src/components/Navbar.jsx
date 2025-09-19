@@ -44,11 +44,18 @@ const Navbar = () => {
               setMobileMenuOpen(false);
             }}> Home</a>
           </li>
+          {
+            user && <li>
+              <Link to="/add" onClick={() => setMobileMenuOpen(false)}>Add</Link>
+            </li>
+
+
+          }
+
 
           <li><a href="#events" onClick={() => setMobileMenuOpen(false)}>Events</a></li>
-          <li><a href="#map" onClick={() => setMobileMenuOpen(false)}>Map</a></li>
+
           <li><a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a></li>
-          <li><a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a></li>
 
 
           {user ? (
