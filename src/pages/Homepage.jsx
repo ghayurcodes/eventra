@@ -8,6 +8,7 @@ import "./Homepage.css"
 
 
 
+
 const Homepage = () => {
 
   return (
@@ -17,6 +18,7 @@ const Homepage = () => {
       <EventsSection/>
       <MapComponent/>
       <Footer/>
+    
    
     </div>
   )
