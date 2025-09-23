@@ -55,7 +55,9 @@ const Navbar = () => {
 
           <li><a href="#events" onClick={() => setMobileMenuOpen(false)}>Events</a></li>
 
-          <li><a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a></li>
+          <li>
+              <Link to="/about" onClick={() => setMobileMenuOpen(false)}>About</Link>
+            </li>
 
 
           {user ? (
