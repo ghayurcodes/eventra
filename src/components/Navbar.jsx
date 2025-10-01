@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import Button from "./button";
-import { Link } from "react-router-dom";
-import { onAuthStateChanged } from "firebase/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { toast } from "react-toastify";
-import { signOut } from "firebase/auth";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [user, setUser] = useState(null);
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
@@ -31,6 +33,21 @@ const Navbar = () => {
     return () => unsubscribe();
   }, []);
 
+  const handleHomeClick = (e) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+
+    if (location.pathname === "/") {
+      // already on homepage → scroll up
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      // navigate to homepage
+      navigate("/");
+      // ensure scroll top after navigation
+      setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 100);
+    }
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -38,30 +55,31 @@ const Navbar = () => {
 
         <ul className={`navbar-links ${mobileMenuOpen ? "active" : ""}`}>
           <li>
-            <a href="#events" onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-              setMobileMenuOpen(false);
-            }}> Home</a>
+            <a href="/" onClick={handleHomeClick}>Home</a>
           </li>
-          {
-            user && <li>
+
+          {user && (
+            <li>
               <Link to="/add" onClick={() => setMobileMenuOpen(false)}>Add</Link>
             </li>
-
-
-          }
-
-
-          <li><a href="#events" onClick={() => setMobileMenuOpen(false)}>Events</a></li>
+          )}
 
           <li>
-              <Link to="/about" onClick={() => setMobileMenuOpen(false)}>About</Link>
-            </li>
+            <a href="#events" onClick={() => setMobileMenuOpen(false)}>Events</a>
+          </li>
 
+          <li>
+            <Link to="/about" onClick={() => setMobileMenuOpen(false)}>About</Link>
+          </li>
 
           {user ? (
-            <Button text="Logout" bgColor="#FF0000" fgColor="white" onhov="#C6011F" onclick={handleLogout} />
+            <Button
+              text="Logout"
+              bgColor="#FF0000"
+              fgColor="white"
+              onhov="#C6011F"
+              onclick={handleLogout}
+            />
           ) : (
             <Link to="/login">
               <Button text="Login" bgColor="var(--primary-color)" fgColor="white" />
